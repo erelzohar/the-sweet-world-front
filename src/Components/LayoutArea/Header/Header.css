@@ -1,0 +1,23 @@
+.Header{
+    display: flex;
+    background-color: rgb(39, 36, 36);
+    height: 100%;
+}
+
+.Header > * {
+	margin: 2vh;
+}
+
+.Header > h1{
+    color: aliceblue;
+    font-size: 10vh;
+    margin: 0;
+    padding: 0;
+}
+
+span{
+    color: aliceblue;
+    position: absolute;
+    right: 2vw;
+    top: 1px;
+}
