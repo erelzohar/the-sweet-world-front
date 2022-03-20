@@ -1,4 +1,3 @@
-import App from "../../../App";
 import Home from "../../HomeArea/Home/Home";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
