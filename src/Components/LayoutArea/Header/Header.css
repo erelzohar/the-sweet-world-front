@@ -9,15 +9,20 @@
 }
 
 .Header > h1{
-    color: aliceblue;
+    color: wheat;
     font-size: 10vh;
     margin: 0;
     padding: 0;
+    max-width: 65%;
 }
 
-span{
+#contact-div{
     color: aliceblue;
     position: absolute;
-    right: 2vw;
-    top: 1px;
+    right: 1vw;
+    display: flex;
+}
+
+#contact-div > a{
+    margin: 6px;
 }

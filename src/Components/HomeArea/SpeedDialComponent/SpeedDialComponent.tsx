@@ -18,11 +18,19 @@ function SpeedDialComponent(): JSX.Element {
   const handleClose = () => setOpen(false);
 
   return (
-    <Box className="SpeedDialComponent" component={'span'} sx={{ height: 330, transform: 'translateZ(0px)', flexGrow: 1, position: 'fixed' , top:'50vh' }}>
+    <Box className="SpeedDialComponent" component={'span'} sx={{
+      height: 330,
+      transform: 'translateZ(0px)',
+      flexGrow: 1,
+      position: 'fixed',
+      top: '50vh',
+      right:'1vw',
+      display: 'flex'
+    }}>
       <Backdrop sx={{ backgroundColor: 'transparent' }} open={open} />
       <SpeedDial
         ariaLabel="SpeedDial"
-        sx={{ position: 'relative'  }}
+        sx={{ position: 'relative', display: 'flex' }}
         icon={<AddIcCall />}
         onClose={handleClose}
         onOpen={handleOpen}
@@ -39,10 +47,10 @@ function SpeedDialComponent(): JSX.Element {
                 return window.open('tel:0584562302', '_self');
               }
               if (action.name === "WhatsApp") {
-                return window.open('https://wa.me/972584006014' , '_self');
+                return window.open('https://wa.me/972584006014', '_self');
               }
               if (action.name === "Instagram") {
-                return window.open('https://www.instagram.com/dina.amira1998/' , '_self');
+                return window.open('https://www.instagram.com/dina.amira1998/', '_self');
               }
             }}
           />

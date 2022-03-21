@@ -3,5 +3,6 @@
 	display: flex;
 	justify-content: center;
 	margin: 0;
+	padding : 1px;
 	background-color: rgb(39, 36, 36);
 }
