@@ -47,7 +47,7 @@ function SpeedDialComponent(): JSX.Element {
                 return window.open('tel:0584562302', '_self');
               }
               if (action.name === "WhatsApp") {
-                return window.open('https://wa.me/972584006014', '_self');
+                return window.open('https://wa.me/972584006065', '_self');
               }
               if (action.name === "Instagram") {
                 return window.open('https://www.instagram.com/dina.amira1998/', '_self');
