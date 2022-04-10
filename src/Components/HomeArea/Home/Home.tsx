@@ -21,33 +21,36 @@ function Home(): JSX.Element {
         addRef,
         makeupRef
     };
-    console.log(typeof slideRef);
 
     return (
         <div className="Home">
             <NavBar elementsRefs={refsObj} />
-            <div id="slide">
+
+            <div dir="rtl" id="slide">
                 <h1 ref={slideRef}>החלקות</h1>
                 <img src={image3} alt="" />
+                <img src={image3} alt="" />
             </div>
-            <div id="add">
+
+            <div dir="rtl" id="add">
                 <h1 ref={addRef}>תוספות שיער</h1>
                 <img src={image3} alt="" />
             </div>
-            <div id="makeup">
+
+            <div dir="rtl" id="makeup">
                 <h1 ref={makeupRef}>איפור מקצועי</h1>
                 <img src={image3} alt="" />
             </div>
-            <div id="curls">
+
+            <div dir="rtl" id="curls">
                 <h1 ref={curlsRef}>פתיחת תלתלים</h1>
                 <img src={image1} alt="" />
             </div>
-            <div id="products">
+
+            <div dir="rtl" id="products">
                 <h1 ref={productsRef} >מוצרים וקורסים</h1>
                 <img src={image2} alt="" />
-
             </div>
-
 
             <SpeedDialComponent />
         </div>

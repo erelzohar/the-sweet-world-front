@@ -4,4 +4,28 @@
     height: 100%;
     background-size: cover;
 }
-
+/* #slide,#add,#makeup,#curls,#products{
+    position: relative;
+    top: 10vh;
+    margin: 2vh;
+} */
+.Home>div img{
+    width: 20vw;
+    border-radius: 10%;
+    box-shadow: none;
+    margin: 0.5vw;
+    transition: width 1s , box-shadow 1s , -moz-box-shadow 1s , -webkit-box-shadow 1s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.842);
+}
+.Home>div img:hover{
+    width: 27vw;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.842);
+    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.822);
+    -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.842) ;
+}
+.Home>div>h1{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #ffff;
+    width: fit-content;
+    margin: auto;
+}
