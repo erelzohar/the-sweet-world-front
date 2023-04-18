@@ -1,9 +1,0 @@
-.NavBar {
-	display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-evenly;
-    position: relative;
-    margin-bottom: 3vh;
-    top: 1.5vh;
-}

@@ -1,11 +1,11 @@
 {
-  "short_name": "Dina Amira",
-  "name": "Dina Amira hair salon",
+  "short_name": "Sweet World",
+  "name": "The Sweet World",
   "icons": [
    
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#fb86d7",
+  "background_color": "#fb86d7"
 }

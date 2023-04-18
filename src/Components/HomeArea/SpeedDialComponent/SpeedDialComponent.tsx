@@ -20,12 +20,13 @@ function SpeedDialComponent(): JSX.Element {
   return (
     <Box className="SpeedDialComponent" component={'span'} sx={{
       height: 330,
-      transform: 'translateZ(0px)',
+      transform: 'translateZ(1ch)',
       flexGrow: 1,
       position: 'fixed',
-      top: '50vh',
+      top: '43vh',
       right:'1vw',
-      display: 'flex'
+      display: 'flex',
+      zIndex:100
     }}>
       <Backdrop sx={{ backgroundColor: 'transparent' }} open={open} />
       <SpeedDial
@@ -44,13 +45,16 @@ function SpeedDialComponent(): JSX.Element {
             tooltipOpen
             onClick={() => {
               if (action.name === "Call") {
-                return window.open('tel:0584562302', '_self');
+                return window.open('tel:0535200876', '_self');
               }
-              if (action.name === "WhatsApp") {
-                return window.open('https://wa.me/972584006065', '_self');
+              else if (action.name === "WhatsApp") {
+                return window.open('https://wa.me/972535200876', '_self');
               }
-              if (action.name === "Instagram") {
-                return window.open('https://www.instagram.com/dina.amira1998/', '_self');
+              else if (action.name === "Instagram") {
+                return window.open('https://www.instagram.com/sweet_world102/', '_self');
+              }
+              else if (action.name === "Facebook") {
+                return window.open('https://www.facebook.com/sweetword102/?paipv=0&eav=AfYznHTnV_OHl8A177rm3hs2Oa1LaX13mHLxW2JtHeUqez0O4TTllqFkJsSzH522dpw&_rdr', '_self');
               }
             }}
           />

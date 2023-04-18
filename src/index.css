@@ -1,4 +1,5 @@
-body , html {
+body,
+html {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -7,17 +8,80 @@ body , html {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-image: linear-gradient(to bottom,black,rgb(184, 0, 31)); */
+  background-image: url('./assets/images/blue_background.jpg');
+  background-size: cover;
+  overflow-y: auto;
+
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #d74444db;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #be1f1f;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.lineSpan {
+  text-decoration: line-through;
+  padding: 1rem;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 .google-font {
-font-family: 'Sansita Swashed',
-cursive;
+  font-family: 'Sansita Swashed',
+    cursive;
 }
-a{
- color: aliceblue;
- text-decoration: none;
+
+.iframes {
+  display: grid;
+  grid-template-columns: repeat(8,25vw);
+  column-gap: 3%;
+  overflow-x: auto;
+}
+
+.iframes::-webkit-scrollbar {
+  height: 7px;
+}
+.iframes figure {
+  margin: 0;
+  padding: 0;
+  align-content: center;
+  justify-content: center;
+  margin-bottom: 2vh;
+  overflow: hidden;
+}
+
+.iframes iframe {
+  border-radius: 7%;
+  overflow: hidden;
+}
+
+@media screen and (max-width:600px) {
+  .iframes {
+    grid-template-columns: repeat(5,50vw);
+  }
 }

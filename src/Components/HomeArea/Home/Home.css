@@ -1,27 +1,140 @@
-.Home {
-	min-height: 90vh;
-    background-image: url('../../../assets/images/bg-image.jpg');
-    height: 100%;
-    background-size: cover;
+.Home a {
+    color:white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+.home-iframes{
+    grid-template-columns: repeat(5,40vw);
+    grid-template-rows: auto;
+    margin: 1rem;
+}
+
+.Home > div{
+    margin-bottom: 30vh;
+}
+.Home>.contact{
+    margin-bottom: 5vh;
+}
+#intro{
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: -6vh;
+    margin-bottom: 5vh;
+    padding: 0;
+    height: 70vh;
+    background-image: url('../../../assets/images/confetti-transparent.png');
+    background-size: contain;
+    width: 100%;
+}
+#introHeader{
+    animation-name: pop,popw;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+}
+#concepts{
+    background-image: url('../../../assets/images/transparent-lollipop.png');
+    display: flex;
+    flex-direction: column;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    align-items: center;
+    justify-self: center;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 50%
+}
+.Carousel{
+    width: 30vw;
+    height: fit-content;
+}
+#reviews{
+    background-image: url('../../../assets/images/origami-transparent.png');
+    display: flex;
+    flex-direction: column;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    align-items: center;
+    background-size: 60%;
+    background-position-x: center;
+    background-repeat: no-repeat;
+}
+#jumbotron{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    background: linear-gradient(to bottom,transparent, #2929293d, transparent);
+    background-size: contain;
+}
+
+
 .Home>div img{
-    width: 20vw;
     max-height: 80vh;
-    border-radius: 10%;
-    box-shadow: none;
-    margin: 0.5vw;
-    transition: width 1s , box-shadow 1s , -moz-box-shadow 1s , -webkit-box-shadow 1s;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.842);
+    border-radius: 7px;
 }
-.Home>div img:hover{
-    width: 27vw;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.842);
-    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.822);
-    -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.842) ;
+
+.divHeader{
+    margin-bottom: 7vh;
+    text-align: center;
+    color: aliceblue;
 }
-.Home>div>h1{
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #ffff;
-    width: fit-content;
-    margin: auto;
+.about-us-child{
+    direction: rtl;
 }
+.about-us-content{
+    text-align: center;
+    display: grid;
+    height: 100%;
+    grid-template-columns: repeat(4,15vw);
+    justify-content: space-around;
+    padding: 1rem;
+}
+
+@media screen and (min-width:600px) {
+    .Home >div:first-child{
+        margin-top: 5rem;
+        padding-top: 3rem;
+    }
+
+}
+ @media screen and (max-width:600px) {
+    #intro{
+        background-size: cover;
+        height: 40vh;
+    }
+    #reviewsBox{
+        width: 70%;
+        max-height: 50vh;
+    }
+    .Home > div{
+        margin-bottom: 20vh;
+    }
+    #reviews{
+        background-size: 120%;
+        background-position-y: center;
+    }
+    #concepts .lineSpan{
+        padding: 0;
+    }
+    .about-us-content{
+        grid-template-columns: 40vw 40vw ;
+    }
+} 
+@-webkit-keyframes popw {
+    0% {scale: 0.9;}
+    50% {
+        scale: 1.2;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.842);
+    }
+    100% {scale: 1;}
+  }
+  
+  @keyframes pop {
+    0% {scale: 0.9;}
+    50% {
+        scale: 1.2;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.842);
+    }
+    100% {scale: 1;}
+  }

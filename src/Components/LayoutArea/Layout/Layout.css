@@ -1,5 +1,29 @@
+
 .Layout {
     height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 10vh minmax(85vh,auto) minmax(2vh,auto);
 }
+
+ .Layout > footer {
+    grid-column: span 6;
+
+
+}
+footer>Footer{
+    background-color: rgb(240, 237, 237);
+}
+.Layout > header {
+    grid-column: span 6;
+}
+.Layout > main {
+    /* padding-top: 10vh; */
+    grid-column: span 6;
+}
+
+

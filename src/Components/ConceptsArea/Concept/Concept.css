@@ -1,0 +1,25 @@
+.Concept {
+    color: aliceblue;
+	display: flex;
+    flex-direction: column;
+    max-height: 40%;
+    margin: 5rem;
+    align-items: center;
+    background: linear-gradient( 105deg, transparent 25%, rgba(0, 0, 0, 0.507) 25%);
+}
+.Concept h3{
+    margin: 1rem;
+}
+@media screen and (max-width:600px) {
+    .Concept{
+        margin-top: 0;
+        flex-direction: column;
+        background: none;
+    }
+}
+@media screen and (min-width:600px){
+    h5{
+        transform: rotate(90deg);
+        font-size: xx-large;
+    }
+}

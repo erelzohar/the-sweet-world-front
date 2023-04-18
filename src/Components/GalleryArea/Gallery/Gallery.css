@@ -1,0 +1,15 @@
+.Gallery figure {
+	margin-top: 3vh;
+    margin-bottom: 5vh;
+}
+
+.Gallery>div{
+    margin: 3rem;
+    margin-bottom: 12vh;
+}
+@media screen and (max-width:600px){
+    .Gallery>div{
+        margin: 1rem;
+        margin-bottom: 12vh;
+    }
+}
