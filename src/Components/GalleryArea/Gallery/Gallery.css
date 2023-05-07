@@ -1,12 +1,12 @@
-.Gallery figure {
-	margin-top: 3vh;
-    margin-bottom: 5vh;
-}
-
 .Gallery>div{
     margin: 3rem;
-    margin-bottom: 12vh;
+    margin-bottom: 15vh;
 }
+.iframes-grid-container{
+    display: flex;
+    justify-content: center;
+}
+
 @media screen and (max-width:600px){
     .Gallery>div{
         margin: 1rem;

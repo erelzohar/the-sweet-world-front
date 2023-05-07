@@ -1,5 +1,5 @@
 import { Notyf } from "notyf";
-
+// import img from '/assets/images/'
 class Notify {
 
     private notification = new Notyf({ duration: 4000, ripple: false, position: { x: "left", y: "top" } });

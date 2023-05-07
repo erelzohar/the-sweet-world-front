@@ -1,0 +1,60 @@
+.ReviewCard {
+  display: flex;
+}
+
+.review {
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  justify-content: space-around;
+}
+
+.review-rating {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fbbc05;
+  margin-right: 10px;
+  direction: ltr;
+}
+
+.review-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 1rem;
+}
+
+.review-content p {
+  margin: 0;
+  inline-size: 18vw;
+  overflow-wrap: break-word;
+
+}
+
+#postDate {
+  direction: ltr;
+  margin: 0;
+  margin-top: 5px;
+  color: rgb(98, 98, 98);
+  font-size: 80%;
+}
+
+@media screen and (max-width:600px) {
+  .review-content p {
+    inline-size: 70vw;
+    overflow-wrap: break-word;
+  }
+}
+
+@media screen and (min-width:600px) {
+  .review {
+    padding-bottom: 1rem;
+    min-height: 25vh;
+  }
+}

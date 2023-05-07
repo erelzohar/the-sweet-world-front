@@ -1,0 +1,10 @@
+.GenericModal {
+	
+}
+#upload-form {
+    display: flex;
+    flex-direction: column;
+}
+#upload-form>*{
+    margin: 3px;
+}

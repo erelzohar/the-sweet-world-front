@@ -23,7 +23,7 @@ function SpeedDialComponent(): JSX.Element {
       transform: 'translateZ(1ch)',
       flexGrow: 1,
       position: 'fixed',
-      top: '43vh',
+      top: '35vh',
       right:'1vw',
       display: 'flex',
       zIndex:100
@@ -48,13 +48,13 @@ function SpeedDialComponent(): JSX.Element {
                 return window.open('tel:0535200876', '_self');
               }
               else if (action.name === "WhatsApp") {
-                return window.open('https://wa.me/972535200876', '_self');
+                return window.open('https://wa.me/972535200876', 'blank');
               }
               else if (action.name === "Instagram") {
-                return window.open('https://www.instagram.com/sweet_world102/', '_self');
+                return window.open('https://www.instagram.com/sweet_world102/', 'blank');
               }
               else if (action.name === "Facebook") {
-                return window.open('https://www.facebook.com/sweetword102/?paipv=0&eav=AfYznHTnV_OHl8A177rm3hs2Oa1LaX13mHLxW2JtHeUqez0O4TTllqFkJsSzH522dpw&_rdr', '_self');
+                return window.open('https://www.facebook.com/sweetword102/', 'blank');
               }
             }}
           />

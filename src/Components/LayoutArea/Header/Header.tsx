@@ -13,23 +13,7 @@ import logoImg from '../../../assets/images/logo.png';
 import { Link } from 'react-router-dom';
 
 
-const pages = [
-    {
-        name: 'קונספטים לימי הולדת',
-        route: "/concepts"
-    },
-    {
-        name: 'ביקורות',
-        route: "/reviews"
-    },
-    {
-        name: 'גלריה ',
-        route: "/gallery"
-    }
-];
-
 function Header(): JSX.Element {
-
     const [anchorElNav, setAnchorElNav] = React.useState(null);
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLInputElement>) => {
@@ -40,8 +24,6 @@ function Header(): JSX.Element {
         setAnchorElNav(null);
     };
 
-
-
     return (
         <AppBar className='Header' position="fixed" color='default' dir='rtl'>
             <Container maxWidth="xl">
@@ -50,16 +32,14 @@ function Header(): JSX.Element {
                     <Typography
                         variant="inherit"
                         noWrap
-                        component="a"
-                        href="/"
                         sx={{
                             m: 2,
-                            mr:0,
+                            mr: 0,
                             display: { xs: 'none', md: 'flex' },
                             color: 'default',
                         }}
                     >
-                        <img src={logoImg} alt="" style={{ width: '7vw' }} />
+                        <Link to="/"><img src={logoImg} alt="" style={{ width: '7vw' }} /></Link>
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -91,40 +71,59 @@ function Header(): JSX.Element {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            {pages.map((page) => (
-                                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
-                                    <Link to={page.route}><Typography textAlign="center" color="red">{page.name}</Typography></Link>
-                                </MenuItem>
-                            ))}
+                            <MenuItem onClick={handleCloseNavMenu}>
+                                <Link to="/concepts" ><Typography textAlign="center" color="red">הפעלות לימי הולדת</Typography></Link>
+                            </MenuItem>
+                            <MenuItem onClick={handleCloseNavMenu}>
+                                <Link to="/gallery" ><Typography textAlign="center" color="red">גלריה</Typography></Link>
+                            </MenuItem>
+                            <MenuItem onClick={handleCloseNavMenu}>
+                                <Link to="/reviews"><Typography textAlign="center" color="red">ביקורות</Typography></Link>
+                            </MenuItem>
                         </Menu>
                     </Box>
 
                     <Typography
                         variant="inherit"
                         noWrap
-                        component="a"
-                        href="/"
                         sx={{
-                            mr: 2,
                             display: { xs: 'flex', md: 'none' },
                             flexGrow: 1,
-                            color: 'inherit'
+                            color: 'inherit',
+                            justifyContent:'left'
+                            
                         }}
                     >
-                        <img src={logoImg} alt="" style={{ width: '11vw' }} />
+                        <Link to="/"><img src={logoImg} alt="" style={{ width: '12vw' }} /></Link>
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        {pages.map((page) => (
-                            <Link to={page.route} key={page.name}>
-                                <Button
-                                    key={page.name}
-                                    onClick={handleCloseNavMenu}
-                                    sx={{ my: 2, color: 'red', display: 'block', fontSize: 'medium' }}
-                                >
-                                     {page.name}
-                                </Button>
-                            </Link>
-                        ))}
+                        <Link to="/concepts">
+                            <Button
+                                onClick={handleCloseNavMenu}
+                                sx={{ my: 2, color: 'red', display: 'block', fontSize: 'medium' }}
+                            >
+                                הפעלות לימי הולדת
+                            </Button>
+                        </Link>
+                        <Link to="/gallery" >
+                            <Button
+
+                                onClick={handleCloseNavMenu}
+                                sx={{ my: 2, color: 'red', display: 'block', fontSize: 'medium' }}
+                            >
+                                גלריה
+                            </Button>
+                        </Link>
+                        <Link to="/reviews">
+                            <Button
+                                onClick={handleCloseNavMenu}
+                                sx={{ my: 2, color: 'red', display: 'block', fontSize: 'medium' }}
+                            >
+                                ביקורות
+                            </Button>
+                        </Link>
+
+
                     </Box>
                 </Toolbar>
             </Container>

@@ -1,0 +1,17 @@
+.ReviewCardsList {
+    direction: rtl;
+    align-items: center;
+    align-content: center;
+    width: 100vw;
+	display: grid;
+    column-gap: 3%;
+    overflow-x: auto;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+@media screen and (max-width:600px){
+    .ReviewCardsList {
+        justify-content: center;
+    }
+}

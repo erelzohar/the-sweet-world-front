@@ -1,0 +1,10 @@
+.UploadForm {
+	display: flex;
+    flex-direction: column;
+    width: 30vw;
+    
+}
+.UploadForm Button{
+    height: 10vh;
+    margin: 0.5px;
+}

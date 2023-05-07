@@ -18,8 +18,19 @@
 .form-margin{
     padding: 4px;
 }
+#topBtn{
+    border-radius: 50% 50% 50% 50%;
+    position: absolute;
+    left: -3vh;
+    bottom:0;
+    
+}
 @media screen and (max-width:600px){
     .ContactUs{
         background: #dfdfdf57;
+        padding-top: 5px;
+    }
+    #topBtn{
+        display: none;
     }
 }

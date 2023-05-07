@@ -10,6 +10,11 @@
 .Concept h3{
     margin: 1rem;
 }
+.Concept h5{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(255, 27, 72);
+    font-weight: bold;
+}
 @media screen and (max-width:600px) {
     .Concept{
         margin-top: 0;
@@ -18,8 +23,18 @@
     }
 }
 @media screen and (min-width:600px){
-    h5{
-        transform: rotate(90deg);
+    .Concept>h5{
+        text-align: center;
         font-size: xx-large;
+        margin: 0;
+        padding: 0;
     }
+    .Concept .lineSpan{
+        text-align: center;
+        transform: rotate(90deg);
+        font-size: x-large;
+        margin: 1px;
+        padding: 1px; 
+    }
+    
 }

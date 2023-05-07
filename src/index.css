@@ -3,21 +3,35 @@ html {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-image: linear-gradient(to bottom,black,rgb(184, 0, 31)); */
-  background-image: url('./assets/images/blue_background.jpg');
+  background-image: radial-gradient(#ff8a00, #e52e71);
   background-size: cover;
   overflow-y: auto;
+  overflow-x: hidden;
+}
 
+h1,h2,h3,h4,h5,h6{
+  font-family: 'ganclm';
+}
+
+@font-face {
+  font-family: 'ganclm';
+  src: url('ganclm_bold-webfont.woff') format('woff'),
+    url('ganclm_bold-webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+iframe {
+  border-radius: 4%;
 }
 
 /* width */
 ::-webkit-scrollbar {
   width: 8px;
+  height: 9px;
 }
 
 /* Track */
@@ -56,32 +70,37 @@ code {
     cursive;
 }
 
-.iframes {
-  display: grid;
-  grid-template-columns: repeat(8,25vw);
-  column-gap: 3%;
-  overflow-x: auto;
-}
-
 .iframes::-webkit-scrollbar {
   height: 7px;
 }
-.iframes figure {
-  margin: 0;
-  padding: 0;
-  align-content: center;
-  justify-content: center;
-  margin-bottom: 2vh;
-  overflow: hidden;
+
+.iframes {
+  display: grid;
+  max-width: 95vw;
+  margin: 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  align-items: baseline;
+  column-gap: 3%;
+  padding: 1rem;
 }
 
-.iframes iframe {
-  border-radius: 7%;
-  overflow: hidden;
+.modalForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.modalForm>* {
+  margin: 3px;
 }
 
 @media screen and (max-width:600px) {
   .iframes {
-    grid-template-columns: repeat(5,50vw);
+    display: flex;
   }
+
+  .iframes:nth-last-child() {
+    margin-bottom: 0;
+  }
+
 }

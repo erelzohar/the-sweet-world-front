@@ -1,71 +1,51 @@
 import "./Home.css";
+import * as React from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import { Link } from "react-router-dom";
 import PhoneIcon from '@mui/icons-material/Phone';
-import Box from '@mui/material/Box';
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
 import CelebrationIcon from '@mui/icons-material/Celebration';
-import { FcCalendar } from "react-icons/fc";
-import { FcGallery } from "react-icons/fc";
-import { FcCollaboration } from "react-icons/fc";
-import { FcCloseUpMode } from "react-icons/fc";
-import { FcBullish } from "react-icons/fc";
-import { FcDepartment } from "react-icons/fc";
-import { FcGraduationCap } from "react-icons/fc";
+import { FcCalendar, FcGraduationCap, FcDepartment, FcBullish, FcCloseUpMode, FcCollaboration, FcGallery } from "react-icons/fc";
+import DB from '../../../Services/DB';
+import { CircularProgress } from "@mui/material";
+import ConceptModel from "../../../Models/ConceptModel";
+import DataModel from "../../../Models/DataModel";
+import notify from "../../../Services/Notify";
+import globals from "../../../Services/Globals";
+import ReactPlayer, { FacebookConfig } from 'react-player/facebook';
 
 function Home(): JSX.Element {
-    const itemData = [
-        {
-            img: 'https://images.unsplash.com/photo-1549388604-817d15aa0110',
-            title: 'Bed'
-        },
-        {
-            img: 'https://images.unsplash.com/photo-1525097487452-6278ff080c31',
-            title: 'Books'
-        },
-        {
-            img: 'https://images.unsplash.com/photo-1523413651479-597eb2da0ad6',
-            title: 'Sink'
-        },
-        {
-            img: 'https://images.unsplash.com/photo-1563298723-dcfebaa392e3',
-            title: 'Kitchen'
-        },
-        {
-            img: 'https://images.unsplash.com/photo-1588436706487-9d55d73a39e3',
-            title: 'Blinds'
-        },
-        {
-            img: 'https://images.unsplash.com/photo-1574180045827-681f8a1a9622',
-            title: 'Chairs'
-        },
-        {
-            img: 'https://images.unsplash.com/photo-1530731141654-5993c3016c77',
-            title: 'Laptop'
-        },
-        {
-            img: 'https://images.unsplash.com/photo-1481277542470-605612bd2d61',
-            title: 'Doors'
-        },
-        {
-            img: 'https://images.unsplash.com/photo-1517487881594-2787fef5ebf7',
-            title: 'Coffee'
-        },
-        {
-            img: 'https://images.unsplash.com/photo-1516455207990-7a41ce80f7ee',
-            title: 'Storage'
-        },
-        {
-            img: 'https://images.unsplash.com/photo-1597262975002-c5c3b14bbd62',
-            title: 'Candle'
-        },
-        {
-            img: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4',
-            title: 'Coffee table'
+    const db = new DB();
+    const [data, setData] = React.useState<DataModel>(null);
+    const [loading, setLoading] = React.useState(true);
+    const [config, setConfig] = React.useState<FacebookConfig>({ appId: "764137928715938" });
+
+    React.useEffect(() => {
+        if (window.screen.width > 600) {
+            setConfig({ ...config, attributes: { "data-height": "370px" } })
         }
-    ];
+        setTimeout(() => {
+            setLoading(false);
+        }, 3000);
+        db.getData()
+            .then(res => {
+                setData(res);
+            })
+            .catch(err => {
+                notify.error(err);
+            });
+    }, []);
+    const { concepts, gallery, reviews } = { ...data };
+    console.log(concepts);
+    
+    const scrollRef = React.useRef(null);
+    const scrollToBottom = () => {
+        if (scrollRef.current) {
+            scrollRef.current.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+    }
     return (
         <div className="Home">
             <div id="intro" >
@@ -75,8 +55,8 @@ function Home(): JSX.Element {
                         <p className="lead d-none d-sm-inline">מתנפחים יבשים ורטובים לכל הגילאים , מתנפחי משחק , מגוון דוכני מזון , עמדות משחק , שולחנות שוק ועוד מלא הפתעות.
                             <br />
                             לפרטים נוספים והצעת מחיר
-                            <Link to="/contact" style={{ display: "inline", color: "red" }}> צור קשר<PhoneIcon />
-                            </Link>
+                            <span onClick={scrollToBottom} style={{ cursor: 'pointer', display: "inline", color: "lawngreen", fontSize: "inherit" }}> צור קשר<PhoneIcon />
+                            </span>
                         </p>
                     </div>
                 </div>
@@ -84,63 +64,40 @@ function Home(): JSX.Element {
 
             <div id="concepts">
                 <Link to="/concepts" >
-                    <h1 className="divHeader"><span className="lineSpan">&emsp;&emsp;</span><FcCloseUpMode fontSize="inherit" /> הקונספטים שלנו <span className="lineSpan">&emsp;&emsp;</span></h1>
+                    <h1 className="divHeader"><span className="lineSpan">&emsp;&emsp;</span><FcCloseUpMode fontSize="inherit" /> ההפעלות שלנו <span className="lineSpan">&emsp;&emsp;</span></h1>
                 </Link>
-                <Carousel className="Carousel" swipeable={true} dynamicHeight={true} autoPlay={true} infiniteLoop={true} >
-                    <div>
-                        <img src={itemData[0].img} />
-                        <p className="legend">{itemData[0].title}</p>
-                    </div>
-                    <div>
-                        <img src={itemData[4].img} />
-                        <p className="legend">{itemData[1].title}</p>
-                    </div>
-                    <div>
-                        <p className="legend">{itemData[2].title}</p>
-                        <img src={itemData[2].img} />
-                    </div>
+                <Carousel className="Carousel" swipeable={true} dynamicHeight={true} autoPlay={true} infiniteLoop={true}>
+                    {concepts?.map((e: ConceptModel) =>
+                        <div key={e.title}>
+                            <img alt="" src={globals.imageUrl + e.images[0]} />
+                            <p style={{bottom:"20%"}} className="legend">{e.title}</p>
+                        </div>
+                    )}
                 </Carousel>
-
             </div>
-
-            <div className="iframes-grid-container">
-                <Link to="/gallery">
+            <div id="gallery">
+                <Link to="/gallery" >
                     <h1 className="divHeader"><span className="lineSpan">&emsp;&emsp;</span><FcGallery fontSize="inherit" /> גלריה  <span className="lineSpan">&emsp;&emsp;</span></h1>
                 </Link>
-                <div className="iframes home-iframes">
-                    <figure className="image is-2by1">
-                        <iframe title="iframe" scrolling="no" className="has-ratio" width="640" height="360" src="https://www.facebook.com/plugins/video.php?height=130&href=https%3A%2F%2Fwww.facebook.com%2Fsweetword102%2Fvideos%2F1419728535434136%2F&show_text=false&width=200&t=0" frameBorder="0" allowFullScreen></iframe>
-                    </figure>
-                    <figure className="image is-16by9">
-                        <iframe scrolling="no" title="iframe" className="has-ratio" width="640" height="360" src="https://www.facebook.com/plugins/video.php?height=130&href=https%3A%2F%2Fwww.facebook.com%2Fsweetword102%2Fvideos%2F1419728535434136%2F&show_text=false&width=200&t=0" frameBorder="0" allowFullScreen></iframe>
-                    </figure>
-                    <figure className="image is-16by9">
-                        <iframe scrolling="no" title="iframe" className="has-ratio" width="640" height="360" src="https://www.facebook.com/plugins/video.php?height=130&href=https%3A%2F%2Fwww.facebook.com%2Fsweetword102%2Fvideos%2F1419728535434136%2F&show_text=false&width=200&t=0" frameBorder="0" allowFullScreen></iframe>
-                    </figure>
-                    <figure className="image is-16by9">
-                        <iframe scrolling="no" title="iframe" className="has-ratio" width="640" height="360" src="https://www.facebook.com/plugins/video.php?height=130&href=https%3A%2F%2Fwww.facebook.com%2Fsweetword102%2Fvideos%2F1419728535434136%2F&show_text=false&width=200&t=0" frameBorder="0" allowFullScreen></iframe>
-                    </figure>
+                <div className="iframes-grid-container">
+                    {loading ? <CircularProgress color="error" size="10vw" /> :
+                        <div className="iframes" style={{ gridTemplateColumns: 'repeat(9,23vw)' }}>
+                            {gallery?.playground.slice(0, 3).map((e, i) => <ReactPlayer playing muted url={e} key={i} width="100%" height="100%" config={config} />)}
+                            {gallery?.tables.slice(0, 3).map((e, i) => <ReactPlayer playing muted url={e} key={i} width="100%" height="100%" config={config} />)}
+                            {gallery?.sweets.slice(0, 3).map((e, i) => <ReactPlayer playing muted url={e} key={i} width="100%" height="100%" config={config} />)}
+                        </div>
+                    }
                 </div>
             </div>
-
             <div id="reviews">
                 <Link to="/reviews" color="white">
                     <h1 className="divHeader"><span className="lineSpan">&emsp;&emsp;</span><FcCollaboration fontSize="inherit" /> ביקורות <span className="lineSpan">&emsp;&emsp;</span></h1>
-                    <Box id="reviewsBox" sx={{ width: 600, height: 600, overflowY: 'scroll', borderRadius: '5px' }}>
-                        <ImageList variant="masonry" cols={3} gap={8}>
-                            {itemData.map((item) =>
-                                <ImageListItem key={item.img}>
-                                    <img
-                                        src={`${item.img}?w=248&fit=crop&auto=format`}
-                                        srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                                        alt={item.title}
-                                        loading="lazy"
-                                    />
-                                </ImageListItem>
-                            )}
-                        </ImageList>
-                    </Box>
                 </Link>
+                {reviews && <Carousel className="Carousel" dynamicHeight={true} autoPlay={true} infiniteLoop={true}>
+                    {reviews.images.map((e, i) => <div key={i}>
+                        <img alt="img" src={globals.imageUrl + e} />
+                    </div>)}
+                </Carousel>}
             </div>
 
             <div className="about-us-container">
@@ -162,13 +119,13 @@ function Home(): JSX.Element {
                     </div>
                     <div className="about-us-child">
                         <br />
-                        <CelebrationIcon fontSize="large" color="error" />
+                        <CelebrationIcon fontSize="large" color='secondary' sx={{margin:'3px'}} />
                         <h4>ימי הולדת ומסיבות</h4>
-                        בואו לחגוג איתנו את ימי ההולדת ומסיבות הכיתה הכי כיפים והכי מגבשים שיש. צרו איתנו קשר ואנחנו נדאג לכם להפקה מסודרת, מאורגנת ולצחוק בלתי פוסק.
+                        בואו לחגוג איתנו את ימי ההולדת הכי כיפים והכי מגבשים שיש עם מגוון רחב של אטרקציות. צרו איתנו קשר ואנחנו נדאג לכם להפקה מסודרת, מאורגנת ולצחוק בלתי פוסק.
                     </div>
                 </div>
             </div>
-
+            <div ref={scrollRef} style={{ float: "left", clear: "both", margin: 0, padding: 0, height: 0, width: 0 }}></div>
         </div >
     );
 }
