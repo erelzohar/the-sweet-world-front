@@ -24,7 +24,7 @@ function Main(): JSX.Element {
     const {concepts} = {...data};
     return (
         <>
-        <h1><span className="lineSpan">&emsp;&emsp;</span><CelebrationIcon fontSize="large"/> הקונספטים שלנו<span className="lineSpan">&emsp;&emsp;</span></h1>
+        <h1><span className="lineSpan">&emsp;&emsp;</span><CelebrationIcon fontSize="large"/> ההפעלות שלנו<span className="lineSpan">&emsp;&emsp;</span></h1>
         <div className="Main">
             {concepts?.map((e,i)=><Concept key={i} {...e} />)}
         </div>

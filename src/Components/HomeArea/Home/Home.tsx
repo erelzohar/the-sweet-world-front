@@ -69,7 +69,7 @@ function Home(): JSX.Element {
                     {concepts?.map((e: ConceptModel) =>
                         <div key={e.title}>
                             <img alt="" src={globals.imageUrl + e.images[0]} />
-                            <p style={{bottom:"20%"}} className="legend">{e.title}</p>
+                            <p style={{bottom:"90%"}} className="legend">{e.title}</p>
                         </div>
                     )}
                 </Carousel>
