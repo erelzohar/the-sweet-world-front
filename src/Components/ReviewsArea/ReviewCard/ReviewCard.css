@@ -31,7 +31,7 @@
 }
 
 .review-content p {
-  margin: 0;
+  margin: 5px;
   inline-size: 18vw;
   overflow-wrap: break-word;
 
@@ -55,6 +55,5 @@
 @media screen and (min-width:600px) {
   .review {
     padding-bottom: 1rem;
-    min-height: 25vh;
   }
 }

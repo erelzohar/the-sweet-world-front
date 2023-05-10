@@ -90,7 +90,7 @@
 
 @media screen and (min-width:600px) {
     #intro{
-        margin-top: 1vh;
+        margin-top: -4vh;
     }
     .Home >div:first-child{
         margin-top: 5rem;

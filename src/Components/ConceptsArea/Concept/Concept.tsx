@@ -8,7 +8,7 @@ function Concept(concept:ConceptModel): JSX.Element {
     return (
         <div className="Concept">
             <div className="Carousel">
-                <Carousel dynamicHeight={true} autoPlay={true} infiniteLoop={true} stopOnHover={true}>
+                <Carousel showThumbs={false} dynamicHeight={true} autoPlay={true} infiniteLoop={true} stopOnHover={true}>
                     {concept.images.map(e=><div key={e}><img src={globals.imageUrl+e} alt={e} /></div>)}
                 </Carousel>
             </div>
