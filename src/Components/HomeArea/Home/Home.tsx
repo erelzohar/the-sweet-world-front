@@ -36,7 +36,6 @@ function Home(): JSX.Element {
             });
     }, []);
     const { concepts, gallery, reviews } = { ...data };
-    console.log(concepts);
     
     const scrollRef = React.useRef(null);
     const scrollToBottom = () => {

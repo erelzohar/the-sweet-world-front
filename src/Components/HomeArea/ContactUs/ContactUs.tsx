@@ -44,18 +44,18 @@ function ContactUs(): JSX.Element {
     const { register, handleSubmit, reset, formState: { errors } } = useForm<contactForm>({ resolver });
     const submit: SubmitHandler<contactForm> = data => {
         try {
-            const obj = {...data}            
+            const obj = { ...data }
             emailjs.send('service_t61zdur', 'template_wqtke8g', obj, 'GdC_mO1pCeDSGqzJS')
                 .then((res) => {
-                    
+
                 }, (error) => {
-                    console.log(error);
+                    notify.error(error);
 
                 });
             reset();
             notify.success("!הפנייה נשלחה בהצלחה");
         }
-        catch (err:any) {
+        catch (err: any) {
             notify.error(err.message);
         }
     }
