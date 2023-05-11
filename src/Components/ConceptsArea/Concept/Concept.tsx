@@ -13,7 +13,7 @@ function Concept(concept:ConceptModel): JSX.Element {
                 </Carousel>
             </div>
             <span className="lineSpan">&emsp;&emsp;</span><h5> {concept.title} </h5><span className="lineSpan">&emsp;&emsp;</span>
-            <h3 style={{textAlign:"center"}} dir="rtl">{concept.description}</h3>
+            <h3 dir="rtl">{concept.description}</h3>
         </div>
     );
 }

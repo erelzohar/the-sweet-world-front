@@ -9,8 +9,10 @@
 }
 .Concept h3{
     margin: 1rem;
+    text-align: center;
 }
 .Concept h5{
+    text-align: center;
     color: rgb(255, 27, 72);
     font-weight: bold;
 }

@@ -72,7 +72,7 @@ function Header(): JSX.Element {
                             }}
                         >
                             <MenuItem onClick={handleCloseNavMenu}>
-                                <Link to="/concepts" ><Typography textAlign="center" color="red">הפעלות לימי הולדת</Typography></Link>
+                                <Link to="/concepts" ><Typography textAlign="center" color="red">הפעלות ואירועים </Typography></Link>
                             </MenuItem>
                             <MenuItem onClick={handleCloseNavMenu}>
                                 <Link to="/gallery" ><Typography textAlign="center" color="red">גלריה</Typography></Link>
@@ -102,7 +102,7 @@ function Header(): JSX.Element {
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'red', display: 'block', fontSize: 'medium' }}
                             >
-                                הפעלות לימי הולדת
+                                הפעלות ואירועים 
                             </Button>
                         </Link>
                         <Link to="/gallery" >
