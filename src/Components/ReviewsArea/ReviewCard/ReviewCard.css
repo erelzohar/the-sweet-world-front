@@ -1,5 +1,6 @@
 .ReviewCard {
   display: flex;
+  height: 100%;
 }
 
 .review {
@@ -32,7 +33,7 @@
 
 .review-content p {
   margin: 5px;
-  inline-size: 18vw;
+  inline-size: 19vw;
   overflow-wrap: break-word;
 
 }

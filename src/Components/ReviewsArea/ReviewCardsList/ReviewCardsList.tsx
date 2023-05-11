@@ -25,7 +25,7 @@ function ReviewCardsList(props:DataModel): JSX.Element {
     
 
     return (
-        <div className="ReviewCardsList" style={{gridTemplateColumns:(screenWidth>600 ? `repeat(${reviewsState.length+1},22vw)`:'80vw')}}>
+        <div className="ReviewCardsList" style={{gridTemplateColumns:`repeat(${reviewsState.length+1},22vw)`}}>
             <AddReview stateHandler={stateHandler}/>
 			{reviewsState && reviewsState.map((e,i)=><ReviewCard key={i} {...e} />)}
         </div>
