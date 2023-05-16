@@ -3,14 +3,17 @@ import "./LoginForm.css";
 import React from "react";
 import { Resolver, SubmitHandler, useForm } from "react-hook-form";
 import notify from "../../../Services/Notify";
+import DB from "../../../Services/DB";
+import axios from "axios";
+import globals from "../../../Services/Globals";
 
 interface Credentials {
     username: string,
     password: string
 }
-interface formProps{
-    stateHandler:(isLoggedIn:boolean)=>void,
-    state:boolean
+interface formProps {
+    stateHandler: (isLoggedIn: boolean) => void,
+    state: boolean
 }
 const resolver: Resolver<Credentials> = async (values) => {
     return {
@@ -40,24 +43,26 @@ const resolver: Resolver<Credentials> = async (values) => {
     };
 }
 
-const LoginForm:React.FC<formProps>=(props): JSX.Element=> {
-
-    const { register, handleSubmit, reset, formState: { errors } } = useForm<Credentials>({ resolver,mode:'onBlur' });
+const LoginForm: React.FC<formProps> = (props): JSX.Element => {
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<Credentials>({ resolver, mode: 'onBlur' });
     const [open, setOpen] = React.useState(true);
-    const handleClose = () => {};
-    const submit: SubmitHandler<Credentials> = data => {
+    const handleClose = () => { };
+    const submit: SubmitHandler<Credentials> = async data => {
         try {
-            const obj = { ...data }
+            const obj = { ...data };
 
-            if (obj.username === process.env.REACT_APP_USERNAME && obj.password === process.env.REACT_APP_PASSWORD) {
-                props.stateHandler(true);
-                setOpen(false);
-                notify.success('!התחברת בהצלחה');
-                localStorage.setItem('sweetUser', JSON.stringify(obj));
-            }
-            else {
-                notify.error('שם משתמש או סיסמא שגויים');
-            }
+            const user = new FormData();
+            user.append("username", obj.username);
+            user.append("password", obj.password);
+
+            await axios.post(globals.loginUrl, user)
+                .then(res => res)
+                .catch(err => { throw new Error("שם משתמש או סיסמא שגויים") })
+
+            props.stateHandler(true);
+            setOpen(false);
+            notify.success('!התחברת בהצלחה');
+            localStorage.setItem('sweetUser', JSON.stringify(obj));
         }
         catch (err: any) {
             notify.error(err.message);
@@ -82,7 +87,7 @@ const LoginForm:React.FC<formProps>=(props): JSX.Element=> {
                 aria-describedby="modal-modal-description"
             >
                 <Box sx={style}>
-                    <Typography id="modal-modal-title" variant="h6" component="h2" style={{margin:"3px"}}>
+                    <Typography id="modal-modal-title" variant="h6" component="h2" style={{ margin: "3px" }}>
                         התחברות
                     </Typography>
                     <form className="modalForm" id="login-form" noValidate onSubmit={handleSubmit(submit)}>

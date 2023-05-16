@@ -20,6 +20,7 @@ class DB {
         return data;
     }
 
+
     public async postData(type: string, data: FormData) {
         await axios.post<UploadModel>(globals.dataUrl + "/" + type,data)
             .then(res=>{
