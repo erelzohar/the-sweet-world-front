@@ -13,9 +13,9 @@ class DevelopmentGlobals extends Globals {
 
 // General globals only for production:
 class ProductionGlobals extends Globals {
-    public dataUrl = "https://learned-spider-386307.df.r.appspot.com/api/data";
-    public imageUrl = "https://learned-spider-386307.df.r.appspot.com/api/img/";
-    public loginUrl = "https://learned-spider-386307.df.r.appspot.com/api/login/";
+    public dataUrl = "https://sweet-world-back.onrender.com/api/data";
+    public imageUrl = "https://sweet-world-back.onrender.com/api/img/";
+    public loginUrl = "https://sweet-world-back.onrender.com/api/login/";
 
 }
 
