@@ -71,15 +71,21 @@ function Header(): JSX.Element {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            <MenuItem onClick={handleCloseNavMenu}>
-                                <Link to="/concepts" ><Typography textAlign="center" color="red">הפעלות ואירועים </Typography></Link>
-                            </MenuItem>
-                            <MenuItem onClick={handleCloseNavMenu}>
-                                <Link to="/gallery" ><Typography textAlign="center" color="red">גלריה</Typography></Link>
-                            </MenuItem>
-                            <MenuItem onClick={handleCloseNavMenu}>
-                                <Link to="/reviews"><Typography textAlign="center" color="red">ביקורות</Typography></Link>
-                            </MenuItem>
+                            <Link to="/concepts" >
+                                <MenuItem onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center" color="red">הפעלות ואירועים </Typography>
+                                </MenuItem>
+                            </Link>
+                            <Link to="/gallery" >
+                                <MenuItem onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center" color="red">גלריה</Typography>
+                                </MenuItem>
+                            </Link>
+                            <Link to="/reviews">
+                                <MenuItem onClick={handleCloseNavMenu}>
+                                    <Typography textAlign="center" color="red">ביקורות</Typography>
+                                </MenuItem>
+                            </Link>
                         </Menu>
                     </Box>
 
@@ -90,8 +96,8 @@ function Header(): JSX.Element {
                             display: { xs: 'flex', md: 'none' },
                             flexGrow: 1,
                             color: 'inherit',
-                            justifyContent:'left'
-                            
+                            justifyContent: 'left'
+
                         }}
                     >
                         <Link to="/"><img src={logoImg} alt="" style={{ width: '12vw' }} /></Link>
@@ -102,7 +108,7 @@ function Header(): JSX.Element {
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'red', display: 'block', fontSize: 'medium' }}
                             >
-                                הפעלות ואירועים 
+                                הפעלות ואירועים
                             </Button>
                         </Link>
                         <Link to="/gallery" >
